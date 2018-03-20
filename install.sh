@@ -1,6 +1,6 @@
 #!/bin/bash
 
-######### Resolving Weak WiFi Signal - Ubuntu 16.04.3 ##################################
+######### Resolving Weak WiFi Signal - Tested in Ubuntu 16.04.3 ##################################
 #######################################################################
 clear
 
@@ -52,30 +52,20 @@ fi
 initials()
 {
 
-set -o pipefail
+set -o pipefail			## 
 mkdir $HOME/bin > /dev/null 2>&1
 date -R > $HOME/bin/Sys_log 2>&1
 echo -e "\n\n ----------------------------------------------------------------\n ---------------------------------------------------------------- \n\n" >> $HOME/bin/Sys_log 2>&1
 echo -e "Checking required programs" 2>&1| tee -a $HOME/bin/Sys_log
-#check1=0
-#check2=0
-#check3=0
 hash wget >> $HOME/bin/Sys_log 2>&1
-#if [ $? != 0 ]
-#then
-	check1=$?
-#fi
+check1=$?
 hash unzip >> $HOME/bin/Sys_log 2>&1
-#if [ $? != 0 ]
-#then
-	check2=$?
-#fi
+check2=$?
 hash gcc >> $HOME/bin/Sys_log 2>&1
-#if [ $? != 0 ]
-#then
-	check3=$?
-#fi
-if [ $check1 != 0 -o $check2 != 0 -o $check3 != 0 ]
+check3=$?
+hash make >> $HOME/bin/Sys_log 2>&1
+check4=$?
+if [ $check1 != 0 -o $check2 != 0 -o $check3 != 0 -o $check4 != 0 ]
 then
 	if [ $check1 != 0 ]
 	then
@@ -90,6 +80,11 @@ then
 	if [ $check3 != 0 ]
 	then
 		echo -e "'gcc' program is not installed. Please install the program 'sudo apt install gcc'" 2>&1| tee -a $HOME/bin/Sys_log
+	fi
+	
+	if [ $check4 != 0 ]
+	then
+		echo -e "'make' program is not installed. Please install the program 'sudo apt install make'" 2>&1| tee -a $HOME/bin/Sys_log
 	fi
 	exit_code
 fi
@@ -136,7 +131,6 @@ if [ $ans == 'y' -o $ans == 'Y' ]
 then
 	echo -e "Downloading required file..." 2>&1|tee -a $HOME/bin/Sys_log
 	wget --timeout=35 https://github.com/lwfinger/rtlwifi_new/archive/rock.new_btcoex.zip --progress=dot -q --show-progress 2>&1 | tee -a $HOME/bin/Sys_log
-	#wget --timeout=35 http://periodic.lanl.gov/images/periodictable.pdf --progress=dot -q --show-progress 2>&1 | tee -a $HOME/bin/Sys_log
 	if [ $? != 0 ]
 	then
 		echo -e "ERROR: Failed to download. Check your internet connection \n$HOME/bin/Sys_log for detailed log";
@@ -166,8 +160,7 @@ fi
 read -p "Open new terminal and type iwconfig command and copy-paste the interface name here (e.g. wlp19s0): " interface_name
 echo -e "INTERFACE NAME: $interface_name" >> $HOME/bin/Sys_log 2>&1
 cd $HOME/.tmp_wifi/
-echo -e "In directory $HOME/.tmp_wifi/" >> $HOME/bin/Sys_log 2>&1
-#unzip -o '/media/navi/SHARED/Linux Softwares/rtlwifi_new-rock.new_btcoex.zip'									## change with $HOME/.tmp_wifi/rtlwifi_new-rock.new_btcoex.zip
+echo -e "In directory $HOME/.tmp_wifi/" >> $HOME/bin/Sys_log 2>&1							## change with $HOME/.tmp_wifi/rtlwifi_new-rock.new_btcoex.zip
 unzip -o "$HOME/.tmp_wifi/rock.new_btcoex.zip" >> $HOME/bin/Sys_log 2>&1
 if [ $? != 0 ]
 then
@@ -236,7 +229,6 @@ download_file2()
 	then
 		echo -e "Downloading required file..." 2>&1|tee -a $HOME/bin/Sys_log
 		wget --timeout=35 https://github.com/lwfinger/rtlwifi_new/archive/master.zip --progress=dot -q --show-progress 2>&1 | tee -a $HOME/bin/Sys_log
-		#wget --timeout=35 http://periodic.lanl.gov/images/periodictable.pdf --progress=dot -q --show-progress 2>&1 | tee -a $HOME/bin/Sys_log
 		if [ $? != 0 ]
 		then
 			echo -e "ERROR: Failed to download. Check your internet connection \n$HOME/bin/Sys_log for detailed log";
