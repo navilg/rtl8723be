@@ -188,9 +188,29 @@ then
 fi
 echo -e "..."
 sudo modprobe -rv rtl8723be >> $HOME/bin/Sys_log 2>&1
+if [ $? != 0 ]
+then
+	echo -e "Installation failed. Check $HOME/bin/Sys_log for detailed log" 2>&1 | tee -a $HOME/bin/Sys_log
+fi
+
 sudo modprobe -v rtl8723be ant_sel=2 >> $HOME/bin/Sys_log 2>&1
+if [ $? != 0 ]
+then
+	echo -e "Installation failed. Check $HOME/bin/Sys_log for detailed log" 2>&1 | tee -a $HOME/bin/Sys_log
+fi
+
 sudo ip link set $interface_name up >> $HOME/bin/Sys_log 2>&1
+if [ $? != 0 ]
+then
+	echo -e "Installation failed. Check $HOME/bin/Sys_log for detailed log" 2>&1 | tee -a $HOME/bin/Sys_log
+fi
+
 sudo iw dev $interface_name scan >> $HOME/bin/Sys_log 2>&1
+if [ $? != 0 ]
+then
+	echo -e "Installation failed. Check $HOME/bin/Sys_log for detailed log" 2>&1 | tee -a $HOME/bin/Sys_log
+fi
+
 echo "options rtl8723be ant_sel=2"|sudo tee /etc/modprobe.d/50-rtl8723be.conf >> /dev/null 2>&1
 read -p "Do you want to remove downloaded temporary files ? Retaining files will ensure faster installation next time.(y/n): " ans3
 if [ $ans3 == 'y' -o $ans3 == 'Y' ]
