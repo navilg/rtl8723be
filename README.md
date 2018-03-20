@@ -1,19 +1,77 @@
-# rtl8723be_new1
-A repo for the newest Realtek rtlwifi rtl8723be codes.
 
-Installation instruction
+Hello...
+We are going to resolve Ubuntu weak wifi signal issue 
+using an easy installation script
 
-You will need to install "make", "gcc", "kernel headers", "kernel build essentials", and "git".
+This script is tested successfully on Ubuntu 16.04.3 LTS
 
-If you are running Ubuntu, then
+Initially you will require a internet connection. So, You can sit near to your router or connect with LAN network.
 
- sudo apt-get install linux-headers-generic build-essential git
- 
- 1. Download the script from below git URL:
-https://github.com/navilg/rtl8723be/archive/master.zip
+Steps:
 
-2. Extract the script and run the install.sh as superuser.
 
-3. Initially you will require internet connection for downloading other required files.
+1. Go to download path and extract the zip file
 
-4. 
+2. After extraction we will see a folder rtl8723be-script folder
+
+3. Go inside that folder and you will find install.sh file. We will use this script to run the programs
+
+4. Make sure you have installed following programs in your system.
+Programs:
+
+unzip : You can install it using 'sudo apt install unzip'
+make : You can install it using 'sudo apt install make'
+gcc : You can install it using 'sudo apt install gcc'
+wget : You can install it using 'sudo apt install wget'
+
+
+5. Now we will run the sript in terminal.
+
+bash '/home/navi/Downloads/rtl8723be-script/install.sh'
+
+6. It will ask for password so that it can install the programs as SuperUser
+
+7. It will check for required programs. If all programs mentioned above exist in your system then it will proceed with installation procedure or else it will ask to install those programs. Those programs are by default installed in Ubuntu 16.04.3. 
+
+8. It will ask for permission to download required files. After typing y file will be downloaded
+
+9. Now you need to provide interface name of your wifi.
+
+You can check that using iwconfig command. For that open new terminal
+
+10. Copy paste the interface name
+
+11. Installation is in progress it may take some time. Be patient. Nothing will show on terminal except dot at the time of installation.
+
+12. If installation fails,
+
+Don't worry. It will try installing another file to resolve the issue
+
+Press y and enter
+
+Again it will download another file
+
+Again provide interface name
+
+It will try installing and may take few minutes based on your system speed.
+
+
+13. you can check the background installation processes in log file displayed on the screen
+
+14. Now it will ask if you want to delete downloaded files. If you delete downloaded files. You will need internet connection again if in future you will need to install it again. If you retain it you don't require internet connection again and installation will be faster.
+
+You can retain it or delete it based on your choice. I want to delete it as I already have those file 
+
+15. Installation successful. You can reboot the system for better performance.
+
+
+16. Installation is successful. After rebooting you will find strong wifi signal.
+
+
+Please let me know your feedback, suggestions or any bugs on navilg0409@gmail.com
+
+Thank YOu
+
+:)
+
+
