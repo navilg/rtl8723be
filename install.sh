@@ -212,6 +212,8 @@ then
 fi
 
 echo "options rtl8723be ant_sel=2"|sudo tee /etc/modprobe.d/50-rtl8723be.conf >> /dev/null 2>&1
+echo -e "Restarting Network-Manager" >> $HOME/bin/Sys_log 2>&1
+sudo service network-manager restart
 read -p "Do you want to remove downloaded temporary files ? Retaining files will ensure faster installation next time.(y/n): " ans3
 if [ $ans3 == 'y' -o $ans3 == 'Y' ]
 then
@@ -222,6 +224,8 @@ then
 	fi
 fi
 echo -e "Installation Successful" >> $HOME/bin/Sys_log 2>&1
+echo -e "Restarting Network-Manager" >> $HOME/bin/Sys_log 2>&1
+sudo service network-manager restart
 echo -e "\n\n ----------------------------------------------------------------\n ---------------------------------------------------------------- \n\n" >> $HOME/bin/Sys_log 2>&1
 date -R > $HOME/bin/Sys_log 2>&1
 echo -e "\n\n" >> $HOME/bin/Sys_log 2>&1
@@ -322,6 +326,8 @@ install_new2()
 	fi
 	
 	echo "options rtl8723be ant_sel=2"|sudo tee /etc/modprobe.d/50-rtl8723be.conf >> /dev/null 2>&1
+	echo -e "Restarting Network-Manager" >> $HOME/bin/Sys_log 2>&1
+	sudo service network-manager restart
 	read -p "Do you want to remove downloaded temporary files ? Retaining files will help faster installation next time.(y/n): " ans2
 	if [ $ans2 == 'y' -o $ans2 == 'Y' ]
 	then
