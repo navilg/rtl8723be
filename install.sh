@@ -7,6 +7,8 @@ clear
 #######################################################################################
 ###########           ASCII Text Art     ##########################################
 #######################################################################################
+ascii()
+{
 
 echo
 echo " 		   **************************************** "
@@ -23,7 +25,7 @@ echo
 echo
 echo -e "** Resolving Weak WiFi Signal. **\nDon't forget to give feedback on navilg0409@gmail.com"
 echo
-
+}
 ############################################################################################
 
 ###Files to be downloaded
@@ -33,10 +35,26 @@ echo
 ## log file $HOME/bin/Sys_log
 
 ################# Loging in as SuperUser ###############################
+disclaimer()
+{
+
+echo
+echo -e "\033[31mDISCLAIMER:\033[m By proceeding ahead, You agree that you have taken backup of the data and system configuration and proceeding at your own risk."
+echo -e "This setup fully depends on Linux kernels, current patches and versions. So in some cases this installer might not work as expected. Feedback is appreciated."
+echo
+echo -e "There is no risk of losing data. But there might be small risk to lose some of system configurations."
+echo -e "It is adviced to create a restore point and keep a backup of the same as in case if system configuration is lossed or tool work unexpected, it can be restored back."
+echo
+echo -e "RECOMMENDED backup tool: 'Systemback'. Any other backup tool can also be used"
+echo
+read -p "Press any key and <ENTER> to agree and proceed or <CTRL + C> to abort." disc_key
+unset disc_key
+
+}
 
 sudo_login()
 {
-echo -e "Process running as SuperUser" 2>&1 | tee -a $HOME/bin/Sys_log
+echo -e "Process running as SuperUser"
 sudo echo
 if [ $? != 0 ]
 then
@@ -366,7 +384,10 @@ installation_failed_retry()
 ########################################################################################
 	
 ############################ Main Script ###############################################################
-
+ascii
+disclaimer
+clear
+ascii
 sudo_login
 initials
 install_new1
