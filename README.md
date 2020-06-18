@@ -1,18 +1,18 @@
-
-Hello...
 We are going to resolve Ubuntu weak wifi signal issue 
 using an easy installation script
 
-This script is tested successfully on Ubuntu 16.04.3 LTS
+This script is tested successfully on Ubuntu 16.04.3 LTS, Kernel less than v5.0
 
 ##############################################################################################################################################################
+
 DISCLAIMER: It is advised to take backup of the data and system configuration and proceed at your own risk.
 This setup fully depends on Linux kernels, current patches and versions. So in some cases this installer might not work as expected. Feedback is appreciated.
 There is no risk of losing data. But there might be small risk to lose some of system configurations.
 It is always ewcommended to create a restore point and keep a backup of the same as in case if system configuration is lossed or tool work unexpected, 
 it can be restored back.
 
-RECOMMENDED backup tool: 'Systemback'. Any other backup tool can also be used
+RECOMMENDED backup tool: 'Timeshift' or 'Systemback'. Any other backup tool can also be used
+
 ##############################################################################################################################################################
 
 Initially you will require a internet connection. So, You can sit near to your router or connect with LAN network.
