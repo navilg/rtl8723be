@@ -1,7 +1,7 @@
 We are going to resolve Ubuntu weak wifi signal issue 
 using an easy installation script
 
-This script is tested successfully on Ubuntu 16.04.3 LTS, Kernel less than v5.0
+This script is tested successfully on Ubuntu 16.04.3 LTS.
 
 ##############################################################################################################################################################
 
