@@ -1,19 +1,23 @@
-We are going to resolve Ubuntu weak wifi signal issue 
+# README
+
+### Source Repository of the rtl8723be WiFi driver package has been removed by its owner. :disappointed: Hence, This script will not work as expected. Please refrain from using it until further update.
+
+---------------------------
+
+We are going to resolve Ubuntu weak wifi signal issue
 using an easy installation script
 
 This script is tested successfully on Ubuntu 16.04.3 LTS.
 
-##############################################################################################################################################################
+#### DISCLAIMER
 
-DISCLAIMER: It is advised to take backup of the data and system configuration and proceed at your own risk.
+It is advised to take backup of the data and system configuration and proceed at your own risk.
 This setup fully depends on Linux kernels, current patches and versions. So in some cases this installer might not work as expected. Feedback is appreciated.
 There is no risk of losing data. But there might be small risk to lose some of system configurations.
-It is always ewcommended to create a restore point and keep a backup of the same as in case if system configuration is lossed or tool work unexpected, 
+It is always ewcommended to create a restore point and keep a backup of the same as in case if system configuration is lossed or tool work unexpected,
 it can be restored back.
 
 RECOMMENDED backup tool: 'Timeshift' or 'Systemback'. Any other backup tool can also be used
-
-##############################################################################################################################################################
 
 Initially you will require a internet connection. So, You can sit near to your router or connect with LAN network.
 
@@ -41,7 +45,7 @@ bash '/home/navi/Downloads/rtl8723be-script/install.sh'
 
 6. It will ask for password so that it can install the programs as SuperUser
 
-7. It will check for required programs. If all programs mentioned above exist in your system then it will proceed with installation procedure or else it will ask to install those programs. Those programs are by default installed in Ubuntu 16.04.3. 
+7. It will check for required programs. If all programs mentioned above exist in your system then it will proceed with installation procedure or else it will ask to install those programs. Those programs are by default installed in Ubuntu 16.04.3.
 
 8. It will ask for permission to download required files. After typing y file will be downloaded
 
@@ -70,7 +74,7 @@ It will try installing and may take few minutes based on your system speed.
 
 14. Now it will ask if you want to delete downloaded files. If you delete downloaded files. You will need internet connection again if in future you will need to install it again. If you retain it you don't require internet connection again and installation will be faster.
 
-You can retain it or delete it based on your choice. I want to delete it as I already have those file 
+You can retain it or delete it based on your choice. I want to delete it as I already have those file
 
 15. Installation successful. You can reboot the system for better performance.
 
@@ -83,5 +87,3 @@ Please let me know your feedback, suggestions or any bugs on navilg0409@gmail.co
 Thank YOu
 
 :)
-
-

@@ -39,6 +39,10 @@ disclaimer()
 {
 
 echo
+echo -e "\033[31mMESSAGE: The source repository of rtl8723be driver package has been removed by its owner. Hence, this script has been halted until further update. Sorry for inconvenience.\033[0m"
+exit_code
+
+'''
 echo -e "\033[31mDISCLAIMER:\033[m By proceeding ahead, You agree that you have taken backup of the data and system configuration and proceeding at your own risk."
 echo -e "This setup fully depends on Linux kernels, current patches, versions and wifi hardwares & drivers. So in some cases this installer might not work as expected. Feedback is appreciated."
 echo
@@ -48,8 +52,9 @@ echo
 echo -e "RECOMMENDED backup tool: 'Timeshift' or 'Systemback'. Any other backup tool can also be used"
 echo
 read -p "Press any key and <ENTER> to agree and proceed or <CTRL + C> to abort." disc_key
-unset disc_key
 
+unset disc_key
+'''
 }
 
 sudo_login()
@@ -68,7 +73,7 @@ fi
 initials()
 {
 
-set -o pipefail			## 
+set -o pipefail			##
 mkdir $HOME/bin > /dev/null 2>&1
 date -R > $HOME/bin/Sys_log 2>&1
 echo -e "\n\n ----------------------------------------------------------------\n ---------------------------------------------------------------- \n\n" >> $HOME/bin/Sys_log 2>&1
@@ -87,24 +92,24 @@ then
 	then
 		echo -e "'wget' program is not installed. Please install the program 'sudo apt install wget'" 2>&1| tee -a $HOME/bin/Sys_log
 	fi
-	
+
 	if [ $check2 != 0 ]
 	then
 		echo -e "'unzip' program is not installed. Please install the program 'sudo apt install unzip'" 2>&1| tee -a $HOME/bin/Sys_log
 	fi
-	
+
 	if [ $check3 != 0 ]
 	then
 		echo -e "'gcc' program is not installed. Please install the program 'sudo apt install gcc'" 2>&1| tee -a $HOME/bin/Sys_log
 	fi
-	
+
 	if [ $check4 != 0 ]
 	then
 		echo -e "'make' program is not installed. Please install the program 'sudo apt install make'" 2>&1| tee -a $HOME/bin/Sys_log
 	fi
 	exit_code
 fi
-	
+
 }
 
 ## Exit code #############################
@@ -283,7 +288,7 @@ download_file2()
 }
 
 install_new2()
-{	
+{
 	file="$HOME/.tmp_wifi/master.zip"
 	echo -e "Checking required files" 2>&1 | tee -a $HOME/bin/Sys_log
 	if [ ! -f "$file" ]
@@ -325,25 +330,25 @@ install_new2()
 	then
 	echo -e "Installation failed. Check $HOME/bin/Sys_log for detailed log" 2>&1 | tee -a $HOME/bin/Sys_log
 	fi
-	
+
 	sudo modprobe -v rtl8723be ant_sel=2 >> $HOME/bin/Sys_log 2>&1
 	if [ $? != 0 ]
 	then
 	echo -e "Installation failed. Check $HOME/bin/Sys_log for detailed log" 2>&1 | tee -a $HOME/bin/Sys_log
 	fi
-	
+
 	sudo ip link set $interface_name up >> $HOME/bin/Sys_log 2>&1
 	if [ $? != 0 ]
 	then
 	echo -e "Installation failed. Check $HOME/bin/Sys_log for detailed log" 2>&1 | tee -a $HOME/bin/Sys_log
 	fi
-	
+
 	sudo iw dev $interface_name scan >> $HOME/bin/Sys_log 2>&1
 	if [ $? != 0 ]
 	then
 	echo -e "Installation failed. Check $HOME/bin/Sys_log for detailed log" 2>&1 | tee -a $HOME/bin/Sys_log
 	fi
-	
+
 	echo "options rtl8723be ant_sel=2"|sudo tee /etc/modprobe.d/50-rtl8723be.conf >> /dev/null 2>&1
 	echo -e "Restarting Network-Manager" | tee -a $HOME/bin/Sys_log
 	sleep 2 >> $HOME/bin/Sys_log 2>&1
@@ -369,7 +374,7 @@ install_new2()
 		echo -e "Don't forget to reboot manually."
 		exit_code
 	fi
-}	
+}
 
 ########################################################################################
 
@@ -382,7 +387,7 @@ installation_failed_retry()
 }
 
 ########################################################################################
-	
+
 ############################ Main Script ###############################################################
 ascii
 disclaimer
