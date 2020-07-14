@@ -1,6 +1,6 @@
 # README
 
-### Source Repository of the rtl8723be WiFi driver package has been removed by its owner. :disappointed: Hence, This script will not work as expected. Please refrain from using it until further update.
+### HALTED: <span style=color:red>Source Repository of the rtl8723be WiFi driver package has been removed by its owner. :disappointed: Hence, This script will not work as expected. Please refrain from using it until further update. </span>
 
 ---------------------------
 
